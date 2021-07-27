@@ -25,7 +25,7 @@
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-    background-color: #000;
+    background-color: white;
 }
 
 .hamburger-box {
@@ -46,7 +46,7 @@
 .hamburger-inner::after {
     width: 40px;
     height: 4px;
-    background-color: #000;
+    background-color: white;
     border-radius: 4px;
     position: absolute;
     transition-property: transform;
@@ -68,28 +68,34 @@
     bottom: -10px;
 }
 
-.hamburger--3dxy-r .hamburger-box {
-    perspective: 80px;
+
+.hamburger--spin .hamburger-inner {
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.hamburger--3dxy-r .hamburger-inner {
-    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+.hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
 }
 
-.hamburger--3dxy-r .hamburger-inner::before,
-.hamburger--3dxy-r .hamburger-inner::after {
-    transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+.hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-.hamburger--3dxy-r.is-active .hamburger-inner {
-    background-color: transparent !important;
-    transform: rotateX(180deg) rotateY(180deg) rotateZ(-180deg);
+.hamburger--spin.is-active .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.hamburger--3dxy-r.is-active .hamburger-inner::before {
-    transform: translate3d(0, 10px, 0) rotate(45deg);
+.hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
 }
 
-.hamburger--3dxy-r.is-active .hamburger-inner::after {
-    transform: translate3d(0, -10px, 0) rotate(-45deg);
+.hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
