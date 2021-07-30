@@ -1,5 +1,5 @@
 {
-    "name": "overlove",
+    "name": "Overlove",
     "version": "1.0.0",
     "devDependencies": {
         "@babel/core": "^7.13.10",
@@ -26,8 +26,7 @@
         "panini": "^1.7.1",
         "sass": "^1.50.1",
         "webpack": "^5.28.0",
-        "webpack-stream": "^6.1.2",
-        "gh-pages": "^3.2.3"
+        "webpack-stream": "^6.1.2"
     },
     "browserslist": [
         ">= 1%",
